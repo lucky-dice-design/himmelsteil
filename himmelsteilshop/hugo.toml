@@ -25,5 +25,25 @@ weight = 40
 [[menu.main]]
 identifier = "contact"
 name = "Kontakt"
-url = "/contact"
+url = "/kontakt"
 weight = 50
+[[menu.footer]]
+identifier = "legalNotice"
+name = "Impressum"
+url = "/impressum"
+weight = 60
+[[menu.gooter]]
+identifier = "dataProtection"
+name = "Datenschutz"
+url = "/datenshutz"
+weight = 70
+[[menu.footer]]
+identifier = "contact"
+name = "Kontakt"
+url = "/kontakt"
+weight = 80
+[[menu.footer]]
+identifier = "agb"
+name = "AGB"
+url = "/agb"
+weight = 90

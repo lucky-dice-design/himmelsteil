@@ -1,18 +1,8 @@
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=deice-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Himmelsteil Website</title>
   <link rel="icon" type="image/x-icon" href="/images/Logo.svg">
-  {{ with resources.Get "sass/main.scss" }}
-  {{ $opts := dict "transpiler" "libsass" "targetPath" "css/style.css" }}
-  {{ with . | toCSS $opts }}
-    {{ if hugo.IsDevelopment }}
-      <link rel="stylesheet" href="{{ .RelPermalink }}">
-    {{ else }}
-      {{ with . | minify | fingerprint }}
-        <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}
+  {{ $bundleCSS := resources.Get "css/bundle.css" | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet" type="text/css" href="{{ $bundleCSS.RelPermalink }}" integrity="{{ $bundleCSS.Data.Integrity }}">
 </head>
