@@ -1,0 +1,29 @@
+footer {
+  @include flex-between;
+  padding: $primary-padding;
+  background-color: $sage;
+  color: $mist;
+
+  .footer-left {
+    .footer-address {
+      font-size: sm all;
+    }
+  }
+
+  .footer-mid {
+    @include flex-column;
+
+    .footer-link {
+      color: $mist;
+    }
+  }
+
+  .footer-right {
+    .footer-logo {
+      img {
+        width: 60px;
+        height: auto;
+      }
+    }
+  }
+}

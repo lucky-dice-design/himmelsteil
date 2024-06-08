@@ -1,9 +1,10 @@
-@import url(partials/variables.scss);
+@import "variables.scss";
 
 //Common
 
-@import url(partials/common/header.scss);
-@import url(partials/common/footer.scss);
+@import "partials/common/font.scss";
+@import "partials/common/header.scss";
+@import "partials/common/footer.scss";
 
 // Main CSS
 
@@ -11,4 +12,5 @@
  margin: 0;
  padding: 0;
  box-sizing: border-box;
+ font-family: "Jost";
 }

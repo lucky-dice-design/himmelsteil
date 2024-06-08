@@ -7,3 +7,60 @@ $quartz: #c2a47e;
 $quartz: #a74121;
 
 // Margin
+
+$s-margin: 1rem;
+$m-margin: 5rem;
+$l-margin: 20rem;
+
+$center-margin: 0 auto;
+$s-top-btm-center-margin: 1rem;
+$m-top-btm-center-margin: 5rem;
+$l-top-btm-center-margin: 20rem;
+
+// Padding
+
+$primary-padding: 1rem 2rem;
+
+// Flex
+
+$flex-between: (
+  display: flex,
+  justify-content: space-between,
+  align-items: center,
+  gap: 5rem
+);
+
+$flex-center: (
+  display: flex,
+  justify-content: center,
+  align-items: center,
+  gap: 5rem
+);
+
+$flex-column: (
+ display: flex,
+ flex-direction: column, 
+ gap: 1rem,
+);
+
+@mixin flex-between {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ gap: 5rem;
+}
+
+@mixin flex-center {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 5rem;
+}
+
+@mixin flex-column {
+ display: flex;
+ flex-direction: column;
+ gap: 1rem;
+}
+
+

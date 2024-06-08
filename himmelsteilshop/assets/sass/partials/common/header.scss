@@ -1,3 +1,28 @@
 header {
+ @include flex-between;
  background-color: $quartz;
+ padding: $primary-padding;
+
+ .logo-container {
+
+  img {
+   width: 60px;
+   height: auto;
+  }
+ }
+
+ .main-menu {
+  @include flex-center;
+
+  .nav-link {
+   text-decoration: none;
+   color: $mist;
+  }
+ }
+
+ @media (max-width: 750px) {
+  .main-menu {
+   display: none;
+  }
+ }
 }
