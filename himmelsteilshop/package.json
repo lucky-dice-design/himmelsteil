@@ -1,0 +1,12 @@
+{
+  "name": "himmelsteilshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass --watch assets/sass/main.scss assets/css/bundle.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
