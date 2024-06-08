@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Jost Italic";
+  src: url("/fonts/Jost-Italic-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Jost";
+  src: url("/fonts/Jost-VariableFont_wght.ttf");
+}
+header {
+  background-color: #a74121;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Jost";
+}
+
+/*# sourceMappingURL=bundle.css.map */
