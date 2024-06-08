@@ -5,4 +5,6 @@
   <link rel="icon" type="image/x-icon" href="/images/Logo.svg">
   {{ $bundleCSS := resources.Get "css/bundle.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" type="text/css" href="{{ $bundleCSS.RelPermalink }}" integrity="{{ $bundleCSS.Data.Integrity }}">
+  <link rel="stylesheet" type="text/css" href="/css/animate.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/slick.css">
 </head>

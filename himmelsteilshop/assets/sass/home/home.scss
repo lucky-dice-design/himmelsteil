@@ -1,0 +1,14 @@
+.home-container {
+ .hero-banner {
+  width: 100%;
+  height: 400px;
+  margin: $s-top-btm-center-margin;
+  .hero-slide {
+   .slick-slide {
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+   }
+  }
+ }
+}
