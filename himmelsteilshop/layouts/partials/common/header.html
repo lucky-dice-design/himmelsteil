@@ -1,0 +1,12 @@
+<header>
+ <div class="logo-container">
+  <img src="images/Logo.svg" alt="Himmelsteil Logo">
+ </div>
+ <div class="nav-container">
+  <nav class="main-menu">
+   {{ range .Site.Menus.main }}
+   <a href="{{ .URL }}" class="nav-link">{{ .Name }}</a>
+   {{ end }}
+  </nav>
+ </div>
+</header>
