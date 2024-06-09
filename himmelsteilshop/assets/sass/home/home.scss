@@ -1,14 +1,66 @@
 .home-container {
- .hero-banner {
-  width: 100%;
-  height: 400px;
-  margin: $s-top-btm-center-margin;
-  .hero-slide {
-   .slick-slide {
+  .hero-banner {
+    width: 100%;
     height: 400px;
-    object-fit: cover;
-    object-position: center;
-   }
+    .hero-slide {
+      .slick-slide {
+        height: 400px;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
   }
+
+  .welcome-text-container {
+    width: 1200px;
+    margin: $m-top-btm-center-margin;
+
+    .welcome-text {
+      margin: $s-margin 0;
+    }
+  }
+
+  .papeterie-container {
+    width: 1200px;
+    margin: $center-margin;
+    .papeterie-banner {
+      position: relative;
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        filter: blur(2px);
+      }
+
+      h1 {
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       color: $mist;
+      }
+    }
+  }
+
+  .about-container {
+   width: 1200px;
+   margin: $m-top-btm-center-margin;
+   .about-banner {
+     position: relative;
+     img {
+       width: 100%;
+       height: 200px;
+       object-fit: cover;
+       filter: blur(2px);
+     }
+
+     h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $moss;
+     }
+   }
  }
 }

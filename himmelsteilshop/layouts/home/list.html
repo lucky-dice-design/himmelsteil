@@ -9,5 +9,37 @@
       <img src="/images/dino_birthday.jpg" alt="" />
     </div>
   </div>
+  <div class="welcome-text-container">
+    {{ with .Site.GetPage "home/welcome" }}
+      <h1>{{ .Title  | safeHTML }}</h1>
+      <div class="welcome-text">{{  .Content }}</div>
+    {{ end }}
+  </div>
+  <div class="papeterie-container">
+    <div class="papeterie-banner">
+      <img src="/images/wedding_flatlay.jpg" alt="Flatlay einer Hochzeitspapeterie">
+      {{ with .Site.GetPage "home/papeterie" }}
+      <h1>{{ .Title | safeHTML }}</h1>
+      {{ end }}
+    </div>
+    <div class="papeterie-text-container">
+      {{ with .Site.GetPage "home/papeterie" }}
+      <div class="papeterie-text">{{ .Content }}</div>
+      {{ end }}
+    </div>
+  </div>
+  <div class="about-container">
+    <div class="about-banner">
+      <img src="/images/about_img.jpg" alt="Flatlay einer Hochzeitspapeterie">
+      {{ with .Site.GetPage "home/about" }}
+      <h1>{{ .Title | safeHTML }}</h1>
+      {{ end }}
+    </div>
+    <div class="about-text-container">
+      {{ with .Site.GetPage "home/about" }}
+      <div class="about-text">{{ .Content }}</div>
+      {{ end }}
+    </div>
+  </div>
 </div>
 {{ end }}
