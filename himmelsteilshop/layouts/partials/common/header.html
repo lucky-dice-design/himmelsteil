@@ -2,7 +2,12 @@
  <div class="logo-container">
   <img src="images/Logo.svg" alt="Himmelsteil Logo">
  </div>
- <div class="nav-container">
+ <div class="hamburger-container">
+  <button class="hamburger" id="hamburger">
+   &#9776; 
+  </button>
+ </div>
+ <div class="nav-container animate__animated animate__slideInRight" id="nav-container">
   <nav class="main-menu">
    {{ range .Site.Menus.main }}
    <a href="{{ .URL }}" class="nav-link">{{ .Name }}</a>
