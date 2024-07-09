@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@sanity/base": "^2.36.2"
+  }
+}
