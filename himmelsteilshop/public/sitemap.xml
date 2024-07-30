@@ -4,8 +4,16 @@
   <url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
+    <loc>http://localhost:1313/home/welcome/</loc>
+  </url><url>
     <loc>http://localhost:1313/</loc>
   </url><url>
+    <loc>http://localhost:1313/home/</loc>
+  </url><url>
+    <loc>http://localhost:1313/home/papeterie/</loc>
+  </url><url>
     <loc>http://localhost:1313/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/home/about/</loc>
   </url>
 </urlset>
