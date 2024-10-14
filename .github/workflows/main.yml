@@ -17,8 +17,11 @@ jobs:
       run: sudo apt-get install hugo
 
     - name: Build site
-      working-directory: /home/runner/work/himmelsteil/himmelsteil
-      run: hugo --minify
+      run: hugo --minify --config config.toml  # Updated to use config.toml
+
+    # Check if the public directory was created
+    - name: Check if public directory exists
+      run: ls -la ./public
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -36,6 +39,9 @@ jobs:
       with:
         name: public
 
+    - name: Check contents of public directory before deploying
+      run: ls -la ./public
+
     - name: Deploy to IONOS via SFTP
       env:
         SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
@@ -49,3 +55,4 @@ jobs:
         lftp -c "set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=no'; \
           open -u $SFTP_USERNAME,$SFTP_PASSWORD sftp://$SFTP_SERVER:$SFTP_PORT; \
           mirror -R ./public $TARGET_DIR"
+
