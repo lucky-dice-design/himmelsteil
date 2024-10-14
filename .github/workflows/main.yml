@@ -17,7 +17,7 @@ jobs:
       run: sudo apt-get install hugo
 
     - name: Build site
-      run: hugo
+      run: hugo --minify --config hugo.toml 
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
