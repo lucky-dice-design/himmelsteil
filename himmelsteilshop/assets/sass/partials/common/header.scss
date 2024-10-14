@@ -1,7 +1,7 @@
 header {
  @include flex-between;
  padding: 10px 20px;
- background-color: $quartz;
+ background-color: $moss;
  ;
 
  .logo-container {
@@ -38,7 +38,7 @@ header {
    transition: transform 0.3s ease-in-out;
    transform: translateX(-100%);
    z-index: 9999;
-   background-color: $quartz;
+   background-color: $moss;
 
    &.active {
      display: flex;
