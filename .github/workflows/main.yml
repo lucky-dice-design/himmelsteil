@@ -18,7 +18,7 @@ jobs:
 
     - name: Build site
       working-directory: /home/runner/work/himmelsteil/himmelsteil
-      run: hugo --minify --config hugo.toml
+      run: hugo --minify --config
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
