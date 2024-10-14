@@ -1,7 +1,0 @@
-@import url(partials/variables.scss);
-@import url(partials/common/header.scss);
-@import url(partials/common/footer.scss);
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; }
