@@ -17,7 +17,8 @@ jobs:
       run: sudo apt-get install hugo
 
     - name: Build site
-      run: hugo --minify
+      working-directory: /home/runner/work/himmelsteil/himmelsteil
+      run: hugo --minify --config hugo.toml
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
