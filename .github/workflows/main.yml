@@ -13,28 +13,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # List all files after checkout to ensure all necessary files are present
-    - name: List all files after checkout
-      run: ls -la
-
-    # List the content directory to ensure content is present
-    - name: List content directory
-      run: ls -la ./content
-
-    # Setup Hugo using the official GitHub Action
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: 'latest'
-        extended: true  # Set this to true if using SCSS or other extended features
+        extended: true
 
-    # Build the Hugo site
     - name: Build site
       run: hugo --minify
-
-    # Check if the public directory was created
-    - name: Check if public directory exists
-      run: ls -la ./public
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -52,19 +38,14 @@ jobs:
       with:
         name: public
 
-    - name: Check contents of public directory before deploying
-      run: ls -la ./public
+    - name: Install rsync
+      run: sudo apt-get update && sudo apt-get install -y rsync
 
-    - name: Deploy to IONOS via SFTP
+    - name: Deploy to IONOS via rsync
       env:
-        SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
-        SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-        SFTP_SERVER: access968851051.webspace-data.io
-        SFTP_PORT: 22
-        TARGET_DIR: /kunden/homepages/7/d968851051/htdocs/
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       run: |
-        sudo apt-get update
-        sudo apt-get install -y lftp
-        lftp -c "set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=no'; \
-          open -u $SFTP_USERNAME,$SFTP_PASSWORD sftp://$SFTP_SERVER:$SFTP_PORT; \
-          mirror -R ./public $TARGET_DIR"
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./public/ your_user@your_host:$TARGET_DIR
