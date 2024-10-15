@@ -48,4 +48,4 @@ jobs:
         mkdir -p ~/.ssh
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./public/ your_user@your_host:$TARGET_DIR
+        rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./public/ u112847919@access968851051.webspace-data.io:$TARGET_DIR
