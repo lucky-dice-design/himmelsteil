@@ -18,23 +18,27 @@ jobs:
       run: ls -la
 
     - name: Install Hugo
-      run: sudo apt-get install hugo
+      # Install the extended version if needed
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y wget
+        HUGO_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep tag_name | cut -d '"' -f 4)
+        wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/${HUGO_VERSION}/hugo_extended_${HUGO_VERSION#v}_Linux-64bit.deb
+        sudo dpkg -i hugo.deb
 
     # Build the site
     - name: Build site
-      run: hugo --minify --config config.toml
-      working-directory: ./himmelsteil  # Adjust this if the repo structure is different
+      run: hugo --minify
 
     # Check if the public directory was created
     - name: Check if public directory exists
       run: ls -la ./public
-      working-directory: ./himmelsteil  # Adjust this if the repo structure is different
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         name: public
-        path: himmelsteil/public  # Use full path relative to repo root without 'working-directory'
+        path: ./public
 
   deploy:
     runs-on: ubuntu-latest
@@ -45,9 +49,6 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: public
-
-    - name: Check contents of public directory before deploying
-      run: ls -la ./public
 
     - name: Deploy to IONOS via SFTP
       env:
