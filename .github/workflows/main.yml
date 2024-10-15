@@ -20,16 +20,18 @@ jobs:
     - name: Install Hugo
       run: sudo apt-get install hugo
 
-    # Build the site with verbose output and stop if it fails
+    # Set the working directory to where the code is actually located
     - name: Build site
-      run: |
-        hugo --minify --config config.toml --verbose || { echo "Hugo build failed"; exit 1; }
+      working-directory: ./himmelsteil  # Adjust this if the repo structure is different
+      run: hugo --minify --config config.toml
 
     # Check if the public directory was created
     - name: Check if public directory exists
+      working-directory: ./himmelsteil  # Adjust this if the repo structure is different
       run: ls -la ./public
 
     - name: Upload artifacts
+      working-directory: ./himmelsteil  # Adjust this if the repo structure is different
       uses: actions/upload-artifact@v3
       with:
         name: public
@@ -44,6 +46,10 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: public
+
+    - name: Check contents of public directory before deploying
+      working-directory: ./himmelsteil  # Adjust this if the repo structure is different
+      run: ls -la ./public
 
     - name: Deploy to IONOS via SFTP
       env:
