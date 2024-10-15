@@ -13,18 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # List the files to ensure everything is present after checkout
-    - name: List files after checkout
-      run: ls -la
-
-    - name: Install Hugo
-      # Install the extended version if needed
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y wget
-        HUGO_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep tag_name | cut -d '"' -f 4)
-        wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/${HUGO_VERSION}/hugo_extended_${HUGO_VERSION#v}_Linux-64bit.deb
-        sudo dpkg -i hugo.deb
+    # Use the official Hugo GitHub Action to install Hugo
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest'  # You can specify a specific version if needed
+        extended: true  # Set to true if you need Hugo Extended (for SCSS etc.)
 
     # Build the site
     - name: Build site
@@ -49,6 +43,9 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: public
+
+    - name: Check contents of public directory before deploying
+      run: ls -la ./public
 
     - name: Deploy to IONOS via SFTP
       env:
