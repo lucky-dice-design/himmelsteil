@@ -38,14 +38,11 @@ jobs:
       with:
         name: public
 
-    - name: Install rsync
-      run: sudo apt-get update && sudo apt-get install -y rsync
+    - name: Install sshpass
+      run: sudo apt-get update && sudo apt-get install -y sshpass
 
-    - name: Deploy to IONOS via rsync
+    - name: Deploy to IONOS via SFTP
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        RSYNC_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
       run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./public/ u112847919@access968851051.webspace-data.io:$TARGET_DIR
+        sshpass -p "$RSYNC_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./public/ u112847919@access968851051.webspace-data.io:/kunden/homepages/7/d968851051/htdocs/
