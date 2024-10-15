@@ -13,22 +13,20 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # List the files after checkout to ensure all necessary files are present
+    # List all files after checkout to ensure all necessary files are present
     - name: List all files after checkout
       run: ls -la
 
-    # List the content and theme directories to ensure they are present
-    - name: List content and theme directories
-      run: |
-        ls -la ./content
-        ls -la ./themes
+    # List the content directory to ensure content is present
+    - name: List content directory
+      run: ls -la ./content
 
     # Setup Hugo using the official GitHub Action
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: 'latest'
-        extended: true  # If using Hugo extended
+        extended: true  # Set this to true if using SCSS or other extended features
 
     # Build the Hugo site
     - name: Build site
