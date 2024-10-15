@@ -22,6 +22,13 @@ jobs:
     - name: Build site
       run: hugo --minify
 
+    - name: Check if public directory exists after build
+      run: |
+        if [ ! -d "./public" ]; then
+          echo "Error: The public directory was not created during the Hugo build."
+          exit 1
+        fi
+
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -37,6 +44,14 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: public
+
+    - name: Check contents of downloaded artifacts
+      run: |
+        if [ ! -d "./public" ]; then
+          echo "Error: The public directory was not found after downloading the artifact."
+          exit 1
+        fi
+        ls -la ./public
 
     - name: Install lftp
       run: sudo apt-get update && sudo apt-get install -y lftp
