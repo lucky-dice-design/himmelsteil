@@ -38,11 +38,17 @@ jobs:
       with:
         name: public
 
-    - name: Install sshpass
-      run: sudo apt-get update && sudo apt-get install -y sshpass
+    - name: Install lftp
+      run: sudo apt-get update && sudo apt-get install -y lftp
 
-    - name: Deploy to IONOS via SFTP
+    - name: Deploy to IONOS via SFTP with lftp
       env:
-        RSYNC_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+        SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        SFTP_SERVER: access968851051.webspace-data.io
+        SFTP_PORT: 22
+        TARGET_DIR: /kunden/homepages/7/d968851051/htdocs/
       run: |
-        sshpass -p "$RSYNC_PASSWORD" rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./public/ u112847919@access968851051.webspace-data.io:/kunden/homepages/7/d968851051/htdocs/
+        lftp -c "set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=no'; \
+          open -u $SFTP_USERNAME,$SFTP_PASSWORD sftp://$SFTP_SERVER:$SFTP_PORT; \
+          mirror -R ./public $TARGET_DIR"
