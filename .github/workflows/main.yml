@@ -53,7 +53,7 @@ jobs:
         SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
         SFTP_SERVER: access968851051.webspace-data.io
         SFTP_PORT: 22
-        TARGET_DIR: /kunden/homepages/7/d968851051/htdocs/
+        TARGET_DIR: ./htdocs/
       run: |
         sudo apt-get update
         sudo apt-get install -y lftp
