@@ -20,9 +20,10 @@ jobs:
     - name: Install Hugo
       run: sudo apt-get install hugo
 
-    # Build the site
+    # Build the site with verbose output and stop if it fails
     - name: Build site
-      run: hugo --minify --config config.toml
+      run: |
+        hugo --minify --config config.toml --verbose || { echo "Hugo build failed"; exit 1; }
 
     # Check if the public directory was created
     - name: Check if public directory exists
