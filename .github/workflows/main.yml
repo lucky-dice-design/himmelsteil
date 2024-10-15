@@ -13,16 +13,19 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # Add a step to check files after checkout
+    # List the files to ensure content and themes are present
     - name: List files after checkout
       run: ls -la
 
+    # Install Hugo
     - name: Install Hugo
       run: sudo apt-get install hugo
 
-    # Build the site using the config.toml
+    # Build the site and output any errors
     - name: Build site
-      run: hugo --minify --config config.toml
+      run: |
+        hugo --minify --config config.toml || exit 1
+        echo "Hugo build failed or generated no content. Check your content, theme, and configuration."
 
     # Check if the public directory was created
     - name: Check if public directory exists
@@ -33,6 +36,7 @@ jobs:
       with:
         name: public
         path: ./public
+
 
   deploy:
     runs-on: ubuntu-latest
