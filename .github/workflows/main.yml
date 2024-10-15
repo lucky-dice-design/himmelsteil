@@ -20,48 +20,6 @@ jobs:
     - name: Install Hugo
       run: sudo apt-get install hugo
 
-    # Set the working directory to where the code is actually located
-    - name: Build site
-      working-directory: ./himmelsteil  # Adjust this if the repo structure is different
-      run: hugo --minify --config config.toml
-
-    # Check if the public directory was created
-    - name: Check if public directory exists
-      working-directory: ./himmelsteil  # Adjust this if the repo structure is different
-      run: ls -la ./public
-
-    - name: Upload artifacts
-      working-directory: ./himmelsteil  # Adjust this if the repo structure is different
-      uses: actions/upload-artifact@v3
-      with:
-        name: public
-        path: ./public
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-name: Deploy Hugo Site to IONOS
-
-on:
-  push:
-    branches:
-      - master
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    # List the files to ensure everything is present after checkout
-    - name: List files after checkout
-      run: ls -la
-
-    - name: Install Hugo
-      run: sudo apt-get install hugo
-
     # Build the site
     - name: Build site
       run: hugo --minify --config config.toml
@@ -89,30 +47,6 @@ jobs:
         name: public
 
     - name: Check contents of public directory before deploying
-      run: ls -la ./public
-
-    - name: Deploy to IONOS via SFTP
-      env:
-        SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
-        SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-        SFTP_SERVER: access968851051.webspace-data.io
-        SFTP_PORT: 22
-        TARGET_DIR: /kunden/homepages/7/d968851051/htdocs/
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y lftp
-        lftp -c "set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=no'; \
-          open -u $SFTP_USERNAME,$SFTP_PASSWORD sftp://$SFTP_SERVER:$SFTP_PORT; \
-          mirror -R ./public $TARGET_DIR"
-
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        name: public
-
-    - name: Check contents of public directory before deploying
-      working-directory: ./himmelsteil  # Adjust this if the repo structure is different
       run: ls -la ./public
 
     - name: Deploy to IONOS via SFTP
