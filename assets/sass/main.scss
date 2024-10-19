@@ -15,8 +15,25 @@
  font-family: "Jost";
 }
 
-body {
- height: 100%;
+.content-container {
+ height: 80vh;
+ position: relative;
+}
+
+//Button CSS
+
+.primary-btn {
+ background-color: $moss;
+ color: $mist;
+ padding: $primary-padding;
+ width: fit-content;
+ border-radius: 8px;
+ text-decoration: none;
+ transition: all .5s ease;
+}
+
+.primary-btn:hover {
+  background-color: $sage;
 }
 
 // Home

@@ -3,11 +3,11 @@
   {{  partial "common/head.html" . }}
   <body>
    {{ partial "common/header.html" . }}
-
+  <div class="content-container">
    {{ block "main" . }}
     
    {{ end }}
-
+  </div>
    {{ partial "common/footer.html" . }}
 
    {{ partial "common/scripts.html" . }}

@@ -1,4 +1,16 @@
 {{ define "main" }}
+<div class="wip-container">
+  <img src="/images/system-regular-63-settings-cog-hover-cog-1.gif" width="100"/>
+  <div class="wip-wrapper">
+    <h1>
+      Die Website ist noch im Aufbau.<br> Mein Etsy-Shop steht euch aber weiterhin
+      zur verfügung!
+    </h1>
+    <a href="https://www.etsy.com/de/shop/HimmelsteilShop" class="primary-btn"
+      >Zum Shop</a
+    >
+  </div>
+</div>
 <div class="home-container">
   <div class="hero-banner">
     <div class="hero-slide">
@@ -11,13 +23,16 @@
   </div>
   <div class="welcome-text-container">
     {{ with .Site.GetPage "home/welcome" }}
-      <h1>{{ .Title  | safeHTML }}</h1>
-      <div class="welcome-text">{{  .Content }}</div>
+    <h1>{{ .Title | safeHTML }}</h1>
+    <div class="welcome-text">{{ .Content }}</div>
     {{ end }}
   </div>
   <div class="papeterie-container">
     <div class="papeterie-banner">
-      <img src="/images/wedding_flatlay.jpg" alt="Flatlay einer Hochzeitspapeterie">
+      <img
+        src="/images/wedding_flatlay.jpg"
+        alt="Flatlay einer Hochzeitspapeterie"
+      />
       {{ with .Site.GetPage "home/papeterie" }}
       <h1>{{ .Title | safeHTML }}</h1>
       {{ end }}
@@ -30,7 +45,7 @@
   </div>
   <div class="about-container">
     <div class="about-banner">
-      <img src="/images/about_img.jpg" alt="Flatlay einer Hochzeitspapeterie">
+      <img src="/images/about_img.jpg" alt="Flatlay einer Hochzeitspapeterie" />
       {{ with .Site.GetPage "home/about" }}
       <h1>{{ .Title | safeHTML }}</h1>
       {{ end }}
