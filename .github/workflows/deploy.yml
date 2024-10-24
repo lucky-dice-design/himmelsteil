@@ -24,10 +24,58 @@ jobs:
     - name: Deploy to Server
       uses: appleboy/scp-action@master
       with:
-        host: ${{ secrets.SERVER_IP }}          # Server-IP
-        username: ${{ secrets.SSH_USERNAME }}    # Benutzername
-        key: ${{ secrets.SSH_PRIVATE_KEY }}      # Privater SSH-Schlüssel
-        port: 22                                   # SSH-Port, falls anders, ändere es
+        host: 192.168.178.74
+        username: timo-server    
+        key: -----BEGIN OPENSSH PRIVATE KEY-----
+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
+-----END OPENSSH PRIVATE KEY----- # Privater SSH-Schlüssel
+        port: 22                                
         source: "./public/*"
-        target: "/var/www/himmelsteil/himmelsteil"            # Zielverzeichnis auf dem Server
+        target: "/var/www/himmelsteil/himmelsteil"
 
