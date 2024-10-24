@@ -3,7 +3,7 @@ name: Deploy Hugo Site
 on:
   push:
     branches:
-      - main  # Ändere dies, falls du einen anderen Branch verwendest
+      - master
 
 jobs:
   build:
