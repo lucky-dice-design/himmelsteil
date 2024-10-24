@@ -1,9 +1,9 @@
-name: Deploy Hugo Site to IONOS
+name: Deploy Hugo Site
 
 on:
   push:
     branches:
-      - master
+      - main  # Ändere dies, falls du einen anderen Branch verwendest
 
 jobs:
   build:
@@ -11,60 +11,23 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version: 'latest'
-        extended: true
-
-    - name: Build site
-      run: hugo --minify
-
-    - name: Check if public directory exists after build
+    - name: Install Hugo
       run: |
-        if [ ! -d "./public" ]; then
-          echo "Error: The public directory was not created during the Hugo build."
-          exit 1
-        fi
+        sudo apt-get install hugo
 
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: public
-        path: ./public
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        name: public
-        path: ./public
-
-    - name: Check contents of downloaded artifacts
+    - name: Build Hugo
       run: |
-        if [ ! -d "./public" ]; then
-          echo "Error: The public directory was not found after downloading the artifact."
-          exit 1
-        fi
-        ls -la ./public
+        hugo
 
-    - name: Install lftp
-      run: sudo apt-get update && sudo apt-get install -y lftp
+    - name: Deploy to Server
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.SERVER_IP }}          # Server-IP
+        username: ${{ secrets.SSH_USERNAME }}    # Benutzername
+        key: ${{ secrets.SSH_PRIVATE_KEY }}      # Privater SSH-Schlüssel
+        port: 22                                   # SSH-Port, falls anders, ändere es
+        source: "./public/*"
+        target: "/var/www/himmelsteil/himmelsteil"            # Zielverzeichnis auf dem Server
 
-    - name: Deploy to IONOS via SFTP with lftp
-      env:
-        SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
-        SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-        SFTP_SERVER: access968851051.webspace-data.io
-        SFTP_PORT: 22
-        TARGET_DIR: /
-      run: |
-        lftp -c "set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=no'; \
-          open -u $SFTP_USERNAME,$SFTP_PASSWORD sftp://$SFTP_SERVER:$SFTP_PORT; \
-          mirror -R ./public $TARGET_DIR"
