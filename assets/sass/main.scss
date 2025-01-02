@@ -1,3 +1,4 @@
+@use "sass:map";
 @import "variables.scss";
 
 //Common
@@ -9,33 +10,48 @@
 // Main CSS
 
 * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- font-family: "Jost";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.content-container {
- height: 80vh;
- position: relative;
+html {
+  font-size: $base-font-size;
+
+  body {
+    color: map.get($colors, primary);
+
+    a {
+      text-decoration: none;
+      color: map.get($colors, accent);
+    }
+
+    .primary-btn {
+      @include primary-btn;
+    }
+    .secondary-btn {
+      @include secondary-btn;
+    }
+
+    .flex {
+      &--center {
+        @include flex-box (wrap, row, center, center);
+      }
+      &--start {
+        @include flex-box (wrap, row, center, start);
+      }
+      &--end {
+        @include flex-box (wrap, row, center, end);
+      }
+      &--col-center {
+        @include flex-box (wrap, column, center, center);
+      }
+      &--col-start {
+        @include flex-box (wrap, column, center, start);
+      }
+      &--col-end {
+        @include flex-box (wrap, column, center, end);
+      }
+    }
+  }
 }
-
-//Button CSS
-
-.primary-btn {
- background-color: $moss;
- color: $mist;
- padding: $primary-padding;
- width: fit-content;
- border-radius: 8px;
- text-decoration: none;
- transition: all .5s ease;
-}
-
-.primary-btn:hover {
-  background-color: $sage;
-}
-
-// Home
-
-@import "home/home.scss";

@@ -1,187 +1,198 @@
 @font-face {
-  font-family: "Jost Italic";
-  src: url("/fonts/Jost-Italic-VariableFont_wght.ttf");
+  font-family: "Garamond Variable";
+  src: url("/fonts/EBGaramond-VariableFont_wght.ttf");
+  font-display: swap;
 }
 @font-face {
-  font-family: "Jost";
-  src: url("/fonts/Jost-VariableFont_wght.ttf");
+  font-family: "Poppins Black";
+  src: url("/fonts/Poppins-Black.ttf");
+  font-display: swap;
 }
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 5rem;
-  padding: 10px 20px;
-  background-color: #494b32;
+@font-face {
+  font-family: "Poppins Black Italic";
+  src: url("/fonts/Poppins-BlackItalic.ttf");
+  font-display: swap;
 }
-header .logo-container img {
-  width: 60px;
-  height: auto;
+@font-face {
+  font-family: "Poppins Bold";
+  src: url("/fonts/Poppins-Bold.ttf");
+  font-display: swap;
 }
-header .hamburger-container {
-  display: block;
+@font-face {
+  font-family: "Poppins Bold Italic";
+  src: url("/fonts/PoppinsBoldItalic.ttf");
+  font-display: swap;
 }
-header .hamburger-container .hamburger {
-  border: none;
-  background-color: transparent;
-  font-size: x-large;
-  font-weight: 800;
+@font-face {
+  font-family: "Poppins Extra Bold";
+  src: url("/fonts/Poppins-ExtraBold.ttf");
+  font-display: swap;
 }
-header .hamburger-container .hamburger:active,
-header .hamburger-container .hamburger :focus {
-  border: none;
+@font-face {
+  font-family: "Poppins Extra Bold Italic";
+  src: url("/fonts/Poppins-ExtraBoldItalic.ttf");
+  font-display: swap;
 }
-header .nav-container {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 70px;
-  right: 0;
-  width: 300px;
-  height: 100%;
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(-100%);
-  z-index: 9999;
-  background-color: #494b32;
+@font-face {
+  font-family: "Poppins Extra Light";
+  src: url("/fonts/Poppins-ExtraLight.ttf");
+  font-display: swap;
 }
-header .nav-container.active {
-  display: flex;
-  transform: translateX(0);
+@font-face {
+  font-family: "Poppins Extra Light Italic";
+  src: url("/fonts/Poppins-ExtraLightItalic.ttf");
+  font-display: swap;
 }
-header .nav-container .main-menu {
-  display: flex;
-  flex-direction: column;
+@font-face {
+  font-family: "Poppins Italic";
+  src: url("/fonts/Poppins-Italic.ttf");
+  font-display: swap;
 }
-header .nav-container .main-menu .nav-link {
-  color: white;
-  text-decoration: none;
-  padding: 2rem;
-  text-align: right;
+@font-face {
+  font-family: "Poppins Light";
+  src: url("/fonts/Poppins-Light.ttf");
+  font-display: swap;
 }
-
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 5rem;
-  padding: 1rem 2rem;
-  background-color: #494b32;
-  color: #eee8d7;
+@font-face {
+  font-family: "Poppins Light Italic";
+  src: url("/fonts/Poppins-LightItalic.ttf");
+  font-display: swap;
 }
-footer .footer-left .footer-address {
-  font-size: sm all;
+@font-face {
+  font-family: "Poppins Medium";
+  src: url("/fonts/Poppins-Medium.ttf");
+  font-display: swap;
 }
-footer .footer-mid {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+@font-face {
+  font-family: "Poppins Medium Italic";
+  src: url("/fonts/Poppins-MediumItalic.ttf");
+  font-display: swap;
 }
-footer .footer-mid .footer-link {
-  color: #eee8d7;
+@font-face {
+  font-family: "Poppins Regular";
+  src: url("/fonts/Poppins-Regular.ttf");
+  font-display: swap;
 }
-footer .footer-right .footer-logo img {
-  width: 60px;
-  height: auto;
+@font-face {
+  font-family: "Poppins Semi Bold";
+  src: url("/fonts/Poppins-SemiBold.ttf");
+  font-display: swap;
 }
-
+@font-face {
+  font-family: "Poppins Semi Bold Italic";
+  src: url("/fonts/Poppins-SemiBoldItalic.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Thin";
+  src: url("/fonts/Poppins-Thin.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Thin Italic";
+  src: url("/fonts/Poppins-ThinItalic.ttf");
+  font-display: swap;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Jost";
 }
 
-.content-container {
-  height: 80vh;
-  position: relative;
+html {
+  font-size: calc(16px + 0.09vw);
 }
-
-.primary-btn {
+html body {
+  color: #494b32;
+}
+html body a {
+  text-decoration: none;
+  color: #936247;
+}
+html body .primary-btn {
+  display: flex;
+  wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   background-color: #494b32;
   color: #eee8d7;
+  font-size: calc(16px + 0.09vw);
   padding: 1rem 2rem;
-  width: fit-content;
-  border-radius: 8px;
-  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  border-radius: 0.5rem;
+}
+html body .primary-btn:hover {
+  background-color: #a29369;
+  color: #35271c;
+}
+html body .secondary-btn {
+  display: flex;
+  wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border: 1px #494b32 solid;
+  border-radius: 0.5rem;
+  font-size: calc(16px + 0.09vw);
+  padding: 1rem 2rem;
+  cursor: pointer;
   transition: all 0.5s ease;
 }
-
-.primary-btn:hover {
+html body .secondary-btn:hover {
   background-color: #a29369;
+  color: #35271c;
 }
-
-.wip-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-.wip-container .wip-wrapper {
+html body .flex--center {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  wrap: wrap;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
-
-.home-container {
-  display: none;
+html body .flex--start {
+  display: flex;
+  wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
 }
-.home-container .hero-banner {
-  width: 100%;
-  height: 400px;
+html body .flex--end {
+  display: flex;
+  wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
 }
-.home-container .hero-banner .hero-slide .slick-slide {
-  height: 400px;
-  object-fit: cover;
-  object-position: center;
+html body .flex--col-center {
+  display: flex;
+  wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
-.home-container .welcome-text-container {
-  width: 1200px;
-  margin: 5rem auto;
+html body .flex--col-start {
+  display: flex;
+  wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
 }
-.home-container .welcome-text-container .welcome-text {
-  margin: 1rem 0;
-}
-.home-container .papeterie-container {
-  width: 1200px;
-  margin: 0 auto;
-}
-.home-container .papeterie-container .papeterie-banner {
-  position: relative;
-}
-.home-container .papeterie-container .papeterie-banner img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  filter: blur(2px);
-}
-.home-container .papeterie-container .papeterie-banner h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #eee8d7;
-}
-.home-container .about-container {
-  width: 1200px;
-  margin: 5rem auto;
-}
-.home-container .about-container .about-banner {
-  position: relative;
-}
-.home-container .about-container .about-banner img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  filter: blur(2px);
-}
-.home-container .about-container .about-banner h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #494b32;
+html body .flex--col-end {
+  display: flex;
+  wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
 }
 
 /*# sourceMappingURL=bundle.css.map */

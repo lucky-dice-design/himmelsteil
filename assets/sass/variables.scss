@@ -1,68 +1,113 @@
+@use "sass:map"; 
+
+// ROOT
+$scale: 2;
+$base-font-size: calc(16px + .09vw);
+
 // Colors
-
-$moss: #494b32;
-$sage: #a29369;
-$mist: #eee8d7;
-$quartz: #936247;
-$earth: #35271c;
-
-// Margin
-
-$s-margin: 1rem;
-$m-margin: 5rem;
-$l-margin: 20rem;
-
-$center-margin: 0 auto;
-$s-top-btm-center-margin: 1rem auto;
-$m-top-btm-center-margin: 5rem auto;
-$l-top-btm-center-margin: 20rem auto;
-
-// Padding
-
-$s-padding: 1rem;
-$m-padding: 2rem;
-$l-padding: 20rem;
-
-$primary-padding: 1rem 2rem;
-
-// Flex
-
-$flex-between: (
-  display: flex,
-  justify-content: space-between,
-  align-items: center,
-  gap: 5rem,
+$colors: (
+  primary: #494b32,
+  light: #a29369,
+  dark: #35271c,
+  neutral: #eee8d7,
+  accent: #936247,
 );
 
-$flex-center: (
-  display: flex,
-  justify-content: center,
-  align-items: center,
-  gap: 5rem,
+$background-colors: $colors;
+
+// FONT
+$font_1: "Poppins Regular";
+$font_2: "Garamond Variable";
+$font_light: "Poppins Light";
+$font_bold: "Poppins Bold";
+$rsp-font: calc(1rem + 2% + 2vw);
+
+
+// SPACING
+
+// MARGIN 
+$s-margin: .5rem;
+$m-margin: 1rem;
+$x-margin: 2rem;
+
+$s-tb-margin: $s-margin 0;
+$m-tb-margin: $m-margin 0;
+$x-tb-margin: $x-margin 0;
+
+// PADDING 
+$s-padding: .5rem;
+$m-padding: 1rem;
+$x-padding: 2rem;
+
+$s-tb-padding: $s-padding 0;
+$m-tb-padding: $m-padding 0;
+$x-tb-paddign: $x-padding 0;
+
+$s-btn-padding: $s-padding $m-padding;
+$m-btn-padding: $m-padding $x-padding;
+$x-btn-padding: $x-padding calc(#{$m-padding} * $scale);
+
+// GAP
+
+$s-gap: 0.5rem;
+$m-gap: 1rem;
+$x-gap: 2rem;
+
+// HEADINGS
+$headings: (
+  h1: (font-size: 2.5rem, color: map.get($colors, pirmary), margin: calc(#{$x-tb-margin} * 1.5), font-weight: 800),
+  h2: (font-size: 2.5rem, color: map.get($colors, pirmary), margin: calc(#{$m-tb-margin} * $scale), font-weight: 800),
+  h3: (font-size: 2.5rem, color: map.get($colors, pirmary), margin: $m-tb-margin, font-weight: 800),
+  h4: (font-size: 2.5rem, color: map.get($colors, pirmary), margin: $s-tb-margin, font-weight: 800),
 );
 
-$flex-column: (
-  display: flex,
-  flex-direction: column,
-  gap: 1rem,
-);
+// MIXIN
 
-@mixin flex-between {
+@mixin flex-box($wrap: wrap, $direction: row, $align-items: stretch, $justify-content: flex-start, $gap: $m-gap) {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 5rem;
+  wrap: $wrap;
+  flex-direction: $direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  gap: $m-gap;
 }
 
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5rem;
+@mixin color-comb($bg-key, $color-key) {
+  background-color: map.get($background-colors, $bg-key);
+  color: map.get($colors, $color-key)
 }
 
-@mixin flex-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+@mixin primary-btn(){
+  @include flex-box(wrap, row, center, center);
+  @include color-comb(primary, neutral);
+  font-size: $base-font-size;
+  padding: $m-btn-padding;
+  cursor: pointer;
+  transition: all .5s ease;
+  border-radius: .5rem;
+
+  &:hover {
+    @include color-comb(light, dark);
+  }
+}
+
+@mixin secondary-btn(){
+  @include flex-box(wrap, row, center, center);
+  border: 1px map.get($colors, primary) solid;
+  border-radius: .5rem;
+  font-size: $base-font-size;
+  padding: $m-btn-padding;
+  cursor: pointer;
+  transition: all .5s ease;
+
+  &:hover {
+    @include color-comb(light, dark);
+  }
+}
+
+@mixin position-center(){
+  position: absolute;
+  top: 50%;
+  left: 505;
+  transform: translate(-50%, -50%);
 }
