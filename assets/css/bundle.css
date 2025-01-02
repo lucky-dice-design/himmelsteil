@@ -1,18 +1,198 @@
-/* Error: expected ";".
- *    ,
- * 13 | $s-margin: 1rem;
- *    |          ^
- *    '
- *   assets\sass\variables.scss 13:10  @import
- *   assets\sass\main.scss 1:9         root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected ";".\a    \2577 \a 13 \2502  $s-margin: 1rem;\d\a    \2502           ^\a    \2575 \a   assets\\sass\\variables.scss 13:10  @import\a   assets\\sass\\main.scss 1:9         root stylesheet';
+@font-face {
+  font-family: "Garamond Variable";
+  src: url("/fonts/EBGaramond-VariableFont_wght.ttf");
+  font-display: swap;
 }
+@font-face {
+  font-family: "Poppins Black";
+  src: url("/fonts/Poppins-Black.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Black Italic";
+  src: url("/fonts/Poppins-BlackItalic.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Bold";
+  src: url("/fonts/Poppins-Bold.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Bold Italic";
+  src: url("/fonts/PoppinsBoldItalic.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Extra Bold";
+  src: url("/fonts/Poppins-ExtraBold.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Extra Bold Italic";
+  src: url("/fonts/Poppins-ExtraBoldItalic.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Extra Light";
+  src: url("/fonts/Poppins-ExtraLight.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Extra Light Italic";
+  src: url("/fonts/Poppins-ExtraLightItalic.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Italic";
+  src: url("/fonts/Poppins-Italic.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Light";
+  src: url("/fonts/Poppins-Light.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Light Italic";
+  src: url("/fonts/Poppins-LightItalic.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Medium";
+  src: url("/fonts/Poppins-Medium.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Medium Italic";
+  src: url("/fonts/Poppins-MediumItalic.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Regular";
+  src: url("/fonts/Poppins-Regular.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Semi Bold";
+  src: url("/fonts/Poppins-SemiBold.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Semi Bold Italic";
+  src: url("/fonts/Poppins-SemiBoldItalic.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Thin";
+  src: url("/fonts/Poppins-Thin.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Thin Italic";
+  src: url("/fonts/Poppins-ThinItalic.ttf");
+  font-display: swap;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(16px + 0.09vw);
+}
+html body {
+  color: #494b32;
+}
+html body a {
+  text-decoration: none;
+  color: #936247;
+}
+html body .primary-btn {
+  display: flex;
+  wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #494b32;
+  color: #eee8d7;
+  font-size: calc(16px + 0.09vw);
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  border-radius: 0.5rem;
+}
+html body .primary-btn:hover {
+  background-color: #a29369;
+  color: #35271c;
+}
+html body .secondary-btn {
+  display: flex;
+  wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border: 1px #494b32 solid;
+  border-radius: 0.5rem;
+  font-size: calc(16px + 0.09vw);
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+html body .secondary-btn:hover {
+  background-color: #a29369;
+  color: #35271c;
+}
+html body .flex--center {
+  display: flex;
+  wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+html body .flex--start {
+  display: flex;
+  wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+}
+html body .flex--end {
+  display: flex;
+  wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+}
+html body .flex--col-center {
+  display: flex;
+  wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+html body .flex--col-start {
+  display: flex;
+  wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+}
+html body .flex--col-end {
+  display: flex;
+  wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+}
+
+/*# sourceMappingURL=bundle.css.map */
