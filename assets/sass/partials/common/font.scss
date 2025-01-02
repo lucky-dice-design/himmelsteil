@@ -1,9 +1,113 @@
 @font-face {
- font-family: "Jost Italic";
- src: url('/fonts/Jost-Italic-VariableFont_wght.ttf');
+  font-family: "Garamond Variable";
+  src: url("/fonts/EBGaramond-VariableFont_wght.ttf");
+  font-display: swap;
 }
 
 @font-face {
- font-family: "Jost";
- src: url('/fonts/Jost-VariableFont_wght.ttf');
+  font-family: "Poppins Black";
+  src: url("/fonts/Poppins-Black.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Black Italic";
+  src: url("/fonts/Poppins-BlackItalic.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Bold";
+  src: url("/fonts/Poppins-Bold.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Bold Italic";
+  src: url("/fonts/PoppinsBoldItalic.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Extra Bold";
+  src: url("/fonts/Poppins-ExtraBold.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Extra Bold Italic";
+  src: url("/fonts/Poppins-ExtraBoldItalic.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Extra Light";
+  src: url("/fonts/Poppins-ExtraLight.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Extra Light Italic";
+  src: url("/fonts/Poppins-ExtraLightItalic.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Italic";
+  src: url("/fonts/Poppins-Italic.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Light";
+  src: url("/fonts/Poppins-Light.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Light Italic";
+  src: url("/fonts/Poppins-LightItalic.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Medium";
+  src: url("/fonts/Poppins-Medium.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Medium Italic";
+  src: url("/fonts/Poppins-MediumItalic.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Regular";
+  src: url("/fonts/Poppins-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Semi Bold";
+  src: url("/fonts/Poppins-SemiBold.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Semi Bold Italic";
+  src: url("/fonts/Poppins-SemiBoldItalic.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Thin";
+  src: url("/fonts/Poppins-Thin.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Thin Italic";
+  src: url("/fonts/Poppins-ThinItalic.ttf");
+  font-display: swap;
 }
