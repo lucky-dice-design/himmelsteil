@@ -1,0 +1,44 @@
+header {
+  @include flex-box(wrap, row, center, space-between);
+  @include color-comb(primary, light);
+  background-color: map.get($colors, primary);
+  position: relative;
+  padding: $s-padding 0;
+
+  .logo-container {
+    width: 4rem;
+    margin-left: $m-margin;
+  }
+  .hamburger {
+    color: map.get($colors, neutral);
+    font-size: 1.5rem;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .nav-container {
+    display: none;
+
+    .main-menu {
+      @include flex-box(wrap, column, end, end, $s-gap);
+      background-color: map.get($colors, primary);
+      position: absolute;
+      right: 0rem;
+      top: calc(#{$x-padding} + $s-padding + 4px);
+      z-index: 999;
+
+      .nav-link {
+        color: map.get($colors, neutral);
+        background-color: map.get($colors, primary);
+        padding: $s-padding;
+        text-align: right;
+
+        &:hover {
+          @include color-comb(light, font);
+        }
+      }
+    }
+  }
+}

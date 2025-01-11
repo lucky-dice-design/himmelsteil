@@ -6,6 +6,7 @@
 @import "partials/common/font.scss";
 @import "partials/common/header.scss";
 @import "partials/common/footer.scss";
+@import "home/home.scss";
 
 // Main CSS
 
@@ -19,11 +20,12 @@ html {
   font-size: $base-font-size;
 
   body {
-    color: map.get($colors, primary);
+    color: map.get($colors, font);
+    font-family: 'Poppins Medium';
 
     a {
       text-decoration: none;
-      color: map.get($colors, accent);
+      color: map.get($colors, primary);
     }
 
     .primary-btn {
@@ -52,6 +54,29 @@ html {
       &--col-end {
         @include flex-box (wrap, column, center, end);
       }
+    }
+    
+    .width {
+      &--w-25 {
+        width: 25%;
+      }
+
+      &--w-50 {
+        width: 50%;
+      }
+
+      &--w-75 {
+        width: 75%;
+      }
+
+      &--w-100 {
+        width: 100%;
+      }
+    }
+
+    .content-container {
+      min-height: 80vh;
+      margin: $m-margin 0;
     }
   }
 }

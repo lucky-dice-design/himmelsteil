@@ -1,25 +1,7 @@
 {{ define "main" }}
-<div class="wip-container">
-  <img src="/images/system-regular-63-settings-cog-hover-cog-1.gif" width="100"/>
-  <div class="wip-wrapper">
-    <h1>
-      Die Website ist noch im Aufbau.<br> Mein Etsy-Shop steht euch aber weiterhin
-      zur Verfügung! TEST FÜR SERVER. FICKS DRECKS SCHEIßE
-    </h1>
-    <a href="https://www.etsy.com/de/shop/HimmelsteilShop" class="primary-btn"
-      >Zum Shop</a
-    >
-  </div>
-</div>
 <div class="home-container">
-  <div class="hero-banner">
-    <div class="hero-slide">
-      <img src="/images/closeup_foryou.jpg" alt="" />
-      <img src="/images/airplane_card.jpg" alt="" />
-      <img src="/images/closeup_invitation.jpg" alt="" />
-      <img src="/images/ring_siegel.jpg" alt="" />
-      <img src="/images/dino_birthday.jpg" alt="" />
-    </div>
+  <div class="hero-banner width--w-100 flex--center">
+      <img class="width--w-50" src="/images/closeup_foryou.jpg" alt="" />
   </div>
   <div class="welcome-text-container">
     {{ with .Site.GetPage "home/welcome" }}

@@ -11,6 +11,7 @@ $colors: (
   dark: #35271c,
   neutral: #eee8d7,
   accent: #936247,
+  font: #030303, 
 );
 
 $background-colors: $colors;
@@ -65,7 +66,7 @@ $headings: (
 
 @mixin flex-box($wrap: wrap, $direction: row, $align-items: stretch, $justify-content: flex-start, $gap: $m-gap) {
   display: flex;
-  wrap: $wrap;
+  flex-wrap: $wrap;
   flex-direction: $direction;
   align-items: $align-items;
   justify-content: $justify-content;
