@@ -3,7 +3,7 @@ name: Deploy Hugo Website to Plesk
 on:
   push:
     branches:
-      - main  # Ausführung bei Push auf den `main`-Branch
+      - master  # Ausführung bei Push auf den `main`-Branch
 
 jobs:
   build-and-deploy:
