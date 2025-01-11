@@ -1,0 +1,35 @@
+name: Deploy Hugo Website to Plesk
+
+on:
+  push:
+    branches:
+      - main  # Ausführung bei Push auf den `main`-Branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout des Codes
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Installiere Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "latest" # Alternativ: spezifische Version wie "0.115.2"
+
+      # 3. Baue die Hugo-Website
+      - name: Build Hugo site
+        run: hugo # Hugo generiert die Website im `public`-Ordner
+
+      # 4. Hochladen auf Plesk via SCP
+      - name: Deploy to Plesk
+        uses: appleboy/scp-action@v0.1.5
+        with:
+          host: ${{ secrets.SERVER_ADDRESS }}
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: ./public/ # Der gebaute Ordner, der hochgeladen werden soll
+          target: /var/www/vhosts/himmelsteil.com/httpdocs/
