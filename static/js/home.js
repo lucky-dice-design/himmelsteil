@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
   $(".hero-slide").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -6,15 +6,17 @@ $(document).ready(function () {
     autoplaySpeed: 8000,
     arrows: false,
   });
-});
 
-$(document).on("click", function(event) {
-  if (!$(event.target).closest("#nav-container, #hamburger").length && $("#nav-container").hasClass("active")) {
-      $("#nav-container").removeClass("active");
-  }
-});
+  $("#hamburger").on("click", function (e) {
+    e.preventDefault();
+    
+    $("#nav-container").slideToggle();
 
-$("#hamburger").click(function (event) {
-  event.stopPropagation();
-  $("#nav-container").toggleClass("active");
+    const icon = $(this).find("i");
+    if (icon.hasClass("fa-bars")) {
+      icon.removeClass("fa-bars").addClass("fa-x"); 
+    } else {
+      icon.removeClass("fa-x").addClass("fa-bars");
+    }
+  });
 });
