@@ -33,5 +33,6 @@ jobs:
           password: ${{ secrets.PLESK_PASSWORD }}
           local-dir: ./public/
           server-dir: /var/www/vhosts/deine-domain.com/httpdocs/
-          port: 22 # Falls dein SFTP-Server einen anderen Port nutzt, ändere ihn hier
+          port: 8443 # Falls dein SFTP-Server einen anderen Port nutzt, ändere ihn hier
+          timeout:  500
           
