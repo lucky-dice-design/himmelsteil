@@ -26,12 +26,12 @@ jobs:
 
       # 4. Hochladen auf Plesk via SFTP
       - name: Deploy to Plesk
-          uses: SamKirkland/web-deploy@v1
-          with:
-            target-server: lucky.dice.hq.com
-            remote-user: root
-            private-ssh-key: ${{ secrets.SSH_KEY }}
-            source: ./public/
-            target: /var/www/vhosts/himmelsteil.com/httpdocs/
-            port: 22
+        uses: SamKirkland/web-deploy@v1
+        with:
+          target-server: lucky.dice.hq.com
+          remote-user: root
+          private-ssh-key: ${{ secrets.SSH_KEY }}
+          source: ./public/
+          target: /var/www/vhosts/himmelsteil.com/httpdocs/
+          port: 22
           
