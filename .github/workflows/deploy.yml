@@ -26,11 +26,12 @@ jobs:
 
       # 4. Hochladen auf Plesk via SFTP
       - name: Deploy to Plesk via SFTP
-        uses: appleboy/sftp-action@v0.1.7
+        uses: atymic/sftp-deploy@v1.0.1
         with:
           host: ${{ secrets.PLESK_SERVER }}
+          port: 22
           username: ${{ secrets.PLESK_USERNAME }}
           password: ${{ secrets.PLESK_PASSWORD }}
           source: ./public/
           target: /var/www/vhosts/deine-domain.com/httpdocs/
-          port: 22
+          
