@@ -1,9 +1,9 @@
-name: Deploy Hugo Website to Plesk
+name: Deploy Hugo Website to Plesk via SFTP
 
 on:
   push:
     branches:
-      - master  # Ausführung bei Push auf den `main`-Branch
+      - master
 
 jobs:
   build-and-deploy:
@@ -18,18 +18,19 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "latest" # Alternativ: spezifische Version wie "0.115.2"
+          hugo-version: "latest"
 
       # 3. Baue die Hugo-Website
       - name: Build Hugo site
-        run: hugo # Hugo generiert die Website im `public`-Ordner
+        run: hugo
 
-      # 4. Hochladen auf Plesk via SCP
-      - name: Deploy to Plesk
-        uses: appleboy/scp-action@v0.1.5
+      # 4. Hochladen auf Plesk via SFTP
+      - name: Deploy to Plesk via SFTP
+        uses: appleboy/sftp-action@v0.1.7
         with:
           host: ${{ secrets.PLESK_SERVER }}
           username: ${{ secrets.PLESK_USERNAME }}
           password: ${{ secrets.PLESK_PASSWORD }}
           source: ./public/
           target: /var/www/vhosts/deine-domain.com/httpdocs/
+          port: 22
