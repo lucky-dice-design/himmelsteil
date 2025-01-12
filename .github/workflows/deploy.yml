@@ -31,5 +31,6 @@ jobs:
           host: ${{ secrets.SERVER_ADDRESS }}
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: ./public/ # Der gebaute Ordner, der hochgeladen werden soll
+          port: 22
+          source: ./public/
           target: /var/www/vhosts/himmelsteil.com/httpdocs/
