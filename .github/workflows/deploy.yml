@@ -34,6 +34,6 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           
           echo "Deploying files via SCP"
-          scp -r -o StrictHostKeyChecking=no ./public/* root@lucky.dice.hq.com:/var/www/vhosts/himmelsteil.com/httpdocs/
+          scp -r -o StrictHostKeyChecking=no ./public/* root@212.227.161.13:/var/www/vhosts/himmelsteil.com/httpdocs/
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSHE_KEY }}  # SSH-Schlüssel als GitHub Secret
