@@ -34,5 +34,5 @@ jobs:
           local-dir: ./public/
           server-dir: /var/www/vhosts/deine-domain.com/httpdocs/
           port: 8443 # Falls dein SFTP-Server einen anderen Port nutzt, ändere ihn hier
-          timeout:  500
+          timeout:  50000
           
