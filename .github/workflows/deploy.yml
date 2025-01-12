@@ -3,15 +3,16 @@ name: Deploy Hugo Website to Plesk
 on:
   push:
     branches:
-      - master
+      - master  # Der Workflow wird ausgelöst, wenn auf den Branch `master` gepusht wird
 
 jobs:
   build-and-deploy:
+    name: Build and Deploy Hugo Website
     runs-on: ubuntu-latest
 
     steps:
       # 1. Checkout des Codes
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       # 2. Installiere Hugo
@@ -21,17 +22,18 @@ jobs:
           hugo-version: "latest"
 
       # 3. Baue die Hugo-Website
-      - name: Build Hugo site
+      - name: Build Hugo Website
         run: hugo
 
-      # 4. Hochladen auf Plesk via SFTP
-      - name: Deploy to Plesk
-        uses: SamKirkland/web-deploy@v1
-        with:
-          target-server: lucky.dice.hq.com
-          remote-user: root
-          private-ssh-key: ${{ secrets.SSH_KEY }}
-          source-path: ./public/
-          destination-path: /var/www/vhosts/himmelsteil.com/httpdocs/
-          ssh-port: 22
+      # 4. Deployment via SSH und SCP
+      - name: Deploy to Server via SSH
+        run: |
+          echo "Adding SSH key"
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
           
+          echo "Deploying files via SCP"
+          scp -r -o StrictHostKeyChecking=no ./public/* root@lucky.dice.hq.com:/var/www/vhosts/himmelsteil.com/httpdocs/
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSHE_KEY }}  # SSH-Schlüssel als GitHub Secret
