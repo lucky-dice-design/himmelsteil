@@ -31,7 +31,7 @@ jobs:
           target-server: lucky.dice.hq.com
           remote-user: root
           private-ssh-key: ${{ secrets.SSH_KEY }}
-          source: ./public/
-          target: /var/www/vhosts/himmelsteil.com/httpdocs/
-          port: 22
+          source-path: ./public/
+          destination-path: /var/www/vhosts/himmelsteil.com/httpdocs/
+          ssh-port: 22
           
