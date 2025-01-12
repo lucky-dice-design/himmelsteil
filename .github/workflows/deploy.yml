@@ -28,9 +28,8 @@ jobs:
       - name: Deploy to Plesk
         uses: appleboy/scp-action@v0.1.5
         with:
-          host: ${{ secrets.SERVER_ADDRESS }}
-          username: root
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
+          host: ${{ secrets.PLESK_SERVER }}
+          username: ${{ secrets.PLESK_USERNAME }}
+          password: ${{ secrets.PLESK_PASSWORD }}
           source: ./public/
-          target: /var/www/vhosts/himmelsteil.com/httpdocs/
+          target: /var/www/vhosts/deine-domain.com/httpdocs/
