@@ -26,7 +26,7 @@ jobs:
 
       # 4. Hochladen auf Plesk via SFTP
       - name: Deploy to Plesk via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: sftp://dreamy-margulis.212-227-161-13.plesk.page
           username: ${{ secrets.PLESK_USERNAME }}
