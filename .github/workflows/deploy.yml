@@ -28,7 +28,7 @@ jobs:
       - name: Deploy to Plesk via SFTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: sftp://dreamy-margulis.212-227-161-13.plesk.page
+          server: dreamy-margulis.212-227-161-13.plesk.page
           username: ${{ secrets.PLESK_USERNAME }}
           password: ${{ secrets.PLESK_PASSWORD }}
           local-dir: ./public/
