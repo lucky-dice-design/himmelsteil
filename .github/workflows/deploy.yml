@@ -26,12 +26,12 @@ jobs:
 
       # 4. Hochladen auf Plesk via SFTP
       - name: Deploy to Plesk via SFTP
-        uses: atymic/sftp-deploy@v1.0.1
+        uses: SamKirkland/FTP-Deploy-Action@4.5.0
         with:
-          host: ${{ secrets.PLESK_SERVER }}
-          port: 22
+          server: sftp://dreamy-margulis.212-227-161-13.plesk.page
           username: ${{ secrets.PLESK_USERNAME }}
           password: ${{ secrets.PLESK_PASSWORD }}
-          source: ./public/
-          target: /var/www/vhosts/deine-domain.com/httpdocs/
+          local-dir: ./public/
+          server-dir: /var/www/vhosts/deine-domain.com/httpdocs/
+          port: 22 # Falls dein SFTP-Server einen anderen Port nutzt, ändere ihn hier
           
