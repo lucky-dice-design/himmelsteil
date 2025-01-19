@@ -1,41 +1,37 @@
 {{ define "main" }}
 <div class="home-container">
   <div class="hero-banner width--w-100 flex--center">
-      <img class="width--w-50" src="/images/closeup_foryou.jpg" alt="" />
+    <img class="width--w-50" src="/images/closeup_foryou.jpg" alt="" />
   </div>
   <div class="welcome-text-container">
     {{ with .Site.GetPage "home/welcome" }}
-    <h1>{{ .Title | safeHTML }}</h1>
     <div class="welcome-text">{{ .Content }}</div>
     {{ end }}
   </div>
-  <div class="papeterie-container">
-    <div class="papeterie-banner">
-      <img
-        src="/images/wedding_flatlay.jpg"
-        alt="Flatlay einer Hochzeitspapeterie"
-      />
-      {{ with .Site.GetPage "home/papeterie" }}
-      <h1>{{ .Title | safeHTML }}</h1>
-      {{ end }}
+  <div class="home-content">
+    <div class="home-item">
+      <a href="/papeterie">
+        <img src="/images/ring_siegel.jpg" alt="" />
+        <h2>PAPETERIE</h2>
+      </a>
     </div>
-    <div class="papeterie-text-container">
-      {{ with .Site.GetPage "home/papeterie" }}
-      <div class="papeterie-text">{{ .Content }}</div>
-      {{ end }}
+    <div class="home-item">
+      <a href="https://www.etsy.com/de/shop/HimmelsteilShop">
+        <img src="/images/closeup_invitation.jpg" alt="" />
+        <h2>SHOP</h2>
+      </a>
     </div>
-  </div>
-  <div class="about-container">
-    <div class="about-banner">
-      <img src="/images/about_img.jpg" alt="Flatlay einer Hochzeitspapeterie" />
-      {{ with .Site.GetPage "home/about" }}
-      <h1>{{ .Title | safeHTML }}</h1>
-      {{ end }}
+    <div class="home-item">
+      <a href="/about">
+        <img src="/images/about_img.jpg" alt="" />
+        <h2>ÜBER MICH</h2>
+      </a>
     </div>
-    <div class="about-text-container">
-      {{ with .Site.GetPage "home/about" }}
-      <div class="about-text">{{ .Content }}</div>
-      {{ end }}
+    <div class="home-item">
+      <a href="/blog">
+        <img src="/images/closeup_foryou.jpg" alt="" />
+        <h2>BLOG</h2>
+      </a>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Garamond Variable";
-  src: url("/fonts/EBGaramond-VariableFont_wght.ttf");
+  font-family: "garamond variable";
+  src: url("/fonts/EBGaramond-VariableFont_wght.woff2");
   font-display: swap;
 }
 @font-face {
@@ -59,8 +59,8 @@
   font-display: swap;
 }
 @font-face {
-  font-family: "Poppins Medium";
-  src: url("/fonts/Poppins-Medium.ttf");
+  font-family: "poppins medium";
+  src: url("/fonts/Poppins-Medium.woff2");
   font-display: swap;
 }
 @font-face {
@@ -69,8 +69,8 @@
   font-display: swap;
 }
 @font-face {
-  font-family: "Poppins Regular";
-  src: url("/fonts/Poppins-Regular.ttf");
+  font-family: "poppins regular";
+  src: url("/fonts/Poppins-Regular.woff2");
   font-display: swap;
 }
 @font-face {
@@ -145,10 +145,93 @@ header .nav-container .main-menu .nav-link:hover {
   color: #030303;
 }
 
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: #494b32;
+  color: #eee8d7;
+  max-width: 100%;
+  padding: 1rem;
+}
+footer .footer-left,
+footer .footer-mid,
+footer .footer-right {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 1rem;
+  width: 20%;
+}
+footer .footer-left img,
+footer .footer-mid img,
+footer .footer-right img {
+  width: 50%;
+}
+footer .footer-left a,
+footer .footer-mid a,
+footer .footer-right a {
+  color: #eee8d7;
+}
+
 .home-container .hero-banner img {
-  height: 50vh;
+  height: 500px;
+  width: 100%;
   object-position: center;
   object-fit: cover;
+}
+.home-container .welcome-text-container {
+  text-align: center;
+  margin: 1rem 0;
+}
+.home-container .welcome-text-container h1 {
+  font-family: "Garamond Variable";
+  font-style: italic;
+}
+.home-container .home-content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.home-container .home-content .home-item {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  width: 60%;
+}
+.home-container .home-content .home-item a {
+  width: 100%;
+}
+.home-container .home-content .home-item a img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  opacity: 0.4;
+  transition: all 0.4s ease;
+}
+.home-container .home-content .home-item a img:hover {
+  opacity: 1;
+}
+.home-container .home-content .home-item a h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Garamond Variable";
+  font-style: italic;
+  color: #35271c;
 }
 
 * {
@@ -267,7 +350,8 @@ html body .width--w-100 {
 }
 html body .content-container {
   min-height: 80vh;
-  margin: 1rem 0;
+  margin: 1rem auto;
+  max-width: calc(60vw - 2rem);
 }
 
 /*# sourceMappingURL=bundle.css.map */

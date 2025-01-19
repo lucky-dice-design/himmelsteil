@@ -109,6 +109,6 @@ $headings: (
 @mixin position-center(){
   position: absolute;
   top: 50%;
-  left: 505;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
