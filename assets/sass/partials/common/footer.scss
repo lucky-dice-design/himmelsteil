@@ -1,0 +1,21 @@
+footer {
+ @include flex-box(wrap, row, start, space-between, $m-gap);
+ @include color-comb(primary, neutral);
+ max-width: 100%;
+ padding: $m-padding;
+
+ .footer-left,
+ .footer-mid,
+ .footer-right {
+  @include flex-box(wrap, column, start, center);
+  width: 20%;
+
+  img {
+   width: 50%;
+  }
+  
+  a {
+   color: map.get($colors, neutral);
+  }
+ }
+}

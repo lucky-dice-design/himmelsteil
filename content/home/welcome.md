@@ -1,8 +1,11 @@
 ---
-title: "HEY DU, <br> schön, dass du da bist!"
+title: Welcome
 type: home
 ---
 
-## Test für Deploy
+# Hej du, schön,
+# dass du bei mir vorbei schaust!
 
-Hier findest du Papeterie für besondere Events, Kreativbedarf für dein Künstlerherz, eine kleine Auswahl an Dekoartiklen und den einen oder anderen Artikel zum....
+<br>
+
+Hier findest du Papeterie für besondere Anlässe, Kreativbedarf für Künstlerherzen, eine kleine Auswahl an Dekoartikeln und einen Block zum stöbern.

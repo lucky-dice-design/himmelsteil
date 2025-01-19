@@ -76,7 +76,8 @@ html {
 
     .content-container {
       min-height: 80vh;
-      margin: $m-margin 0;
+      margin: $m-margin auto;
+      max-width: calc(60vw - 2rem);
     }
   }
 }
