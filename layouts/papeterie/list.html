@@ -1,0 +1,39 @@
+{{ define "main" }}
+<div class="papeterie-container">
+  <div class="papeterie-hero">
+    <img class="papeterie-hero-img" src="/images/wedding_flatlay.jpg" />
+  </div>
+  {{ with .Site.GetPage "papeterie/index" }}
+  <div class="papeterie-text">{{ .Content | safeHTML }}</div>
+  {{ end }}
+  <div class="papeterie-slide-container">
+    <div class="papeterie-slide">
+      {{ $images := readDir "static/images/slide" }} {{ range $images }} {{ if
+      .IsDir }} {{ continue }} {{ end }}
+      <img class="papeterie-slide-img" src="/images/{{ .Name }}" />
+      {{ end }}
+    </div>
+  </div>
+  <div class="papeterie-content flex--col-center">
+    <div class="request flex--col-center gap-0">
+      <h1>Individuelle Papeterie</h1>
+      <p>... fernab der Massenware</p>
+      <p>... eigene Handschrift in jedem Detail</p>
+      <p>... endlose Möglichkeiten für besondere Herzensmomente</p>
+      <a href="mailto:himmelsteil@web.de" class="primary-btn"
+        >himmelsteil@web.de</a
+      >
+    </div>
+    <div class="collection flex--col-center gap-0">
+      <p>Ihr seid auf der Suche nach</p>
+      <h1>Hochzeitspapeterie,</h1>
+      <p>hochwertig und auergewöhnlich,</p>
+      <p>aber budgetfreundlich und zeitsparned?</p>
+      <p>Dann schaut bei meinen Kollektionen vorbei</p>
+      <a href="/collection" class="primary-btn"
+        >Kollektionen</a
+      >
+    </div>
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,33 @@
+.papeterie-container {
+  .papeterie-hero {
+    .papeterie-hero-img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+    }
+  }
+  .papeterie-text {
+    text-align: center;
+  }
+
+  .papeterie-slide-container {
+    position: relative;
+    width: 120%;
+    left: -35%;
+    margin: 5rem auto;
+    .papeterie-slide {
+      width: 140%; // Set a fixed width for the slides
+      .papeterie-slide-img {
+        width: 400px;
+        height: 350px;
+        object-fit: cover;
+        object-position: center;
+        margin: 0 $m-margin;
+      }
+    }
+  }
+
+  .papeterie-content {
+   text-align: center;
+  }
+}

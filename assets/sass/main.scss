@@ -7,6 +7,7 @@
 @import "partials/common/header.scss";
 @import "partials/common/footer.scss";
 @import "home/home.scss";
+@import "papeterie/papeterie.scss";
 
 // Main CSS
 
@@ -21,18 +22,26 @@ html {
 
   body {
     color: map.get($colors, font);
+    background-color: map.get($colors, neutral);
     font-family: 'Poppins Medium';
 
     a {
       text-decoration: none;
       color: map.get($colors, primary);
     }
-
+    h1 {
+      font-family: $font_2;
+      font-style: italic;
+      text-align: center;
+    }
     .primary-btn {
       @include primary-btn;
     }
     .secondary-btn {
       @include secondary-btn;
+    }
+    .gap-0 {
+      gap: 0 !important;
     }
 
     .flex {
