@@ -86,6 +86,7 @@ $headings: (
   cursor: pointer;
   transition: all .5s ease;
   border-radius: .5rem;
+  margin: $m-margin 0;
 
   &:hover {
     @include color-comb(light, dark);

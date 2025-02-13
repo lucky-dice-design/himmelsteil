@@ -234,6 +234,34 @@ footer .footer-right a {
   color: #35271c;
 }
 
+.papeterie-container .papeterie-hero .papeterie-hero-img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+.papeterie-container .papeterie-text {
+  text-align: center;
+}
+.papeterie-container .papeterie-slide-container {
+  position: relative;
+  width: 120%;
+  left: -35%;
+  margin: 5rem auto;
+}
+.papeterie-container .papeterie-slide-container .papeterie-slide {
+  width: 140%;
+}
+.papeterie-container .papeterie-slide-container .papeterie-slide .papeterie-slide-img {
+  width: 400px;
+  height: 350px;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 1rem;
+}
+.papeterie-container .papeterie-content {
+  text-align: center;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -245,11 +273,17 @@ html {
 }
 html body {
   color: #030303;
+  background-color: #eee8d7;
   font-family: "Poppins Medium";
 }
 html body a {
   text-decoration: none;
   color: #494b32;
+}
+html body h1 {
+  font-family: "Garamond Variable";
+  font-style: italic;
+  text-align: center;
 }
 html body .primary-btn {
   display: flex;
@@ -265,6 +299,7 @@ html body .primary-btn {
   cursor: pointer;
   transition: all 0.5s ease;
   border-radius: 0.5rem;
+  margin: 1rem 0;
 }
 html body .primary-btn:hover {
   background-color: #a29369;
@@ -287,6 +322,9 @@ html body .secondary-btn {
 html body .secondary-btn:hover {
   background-color: #a29369;
   color: #35271c;
+}
+html body .gap-0 {
+  gap: 0 !important;
 }
 html body .flex--center {
   display: flex;
