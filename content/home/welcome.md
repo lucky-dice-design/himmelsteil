@@ -8,4 +8,4 @@ type: home
 
 <br>
 
-Hier findest du Papeterie für besondere Anlässe, Kreativbedarf für Künstlerherzen, eine kleine Auswahl an Dekoartikeln und einen Block zum stöbern.
+Hier findest du Papeterie für besondere Anlässe, Kreativbedarf für Künstlerherzen, eine kleine Auswahl an Dekoartikeln und einen Blog zum Stöbern.
