@@ -29,7 +29,7 @@ jobs:
       - name: Add SSH Key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" | tr -d '\r' > ~/.ssh/
+          echo "${{ secrets.SSH_KEY }}" | tr -d '\r' > ~/.ssh
           id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H 212.227.161.13 >> ~/.ssh/known_hosts
