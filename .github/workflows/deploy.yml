@@ -25,15 +25,16 @@ jobs:
       - name: Build Hugo Website
         run: hugo
 
-      # 4. Deployment via SSH und SCP
-      - name: Deploy to Server via SSH
+      #4. SSH-Key hinzufügen
+      - name: Add SSH Key
         run: |
-          echo "Adding SSH key"
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_KEY }}" | tr -d '\r' > ~/.ssh/
+          id_rsa
           chmod 600 ~/.ssh/id_rsa
-          
-          echo "Deploying files via SCP"
-          sshpass -p "${{ secrets.SSH_PASSWORD }}" scp -r -o StrictHostKeyChecking=no ./public/* root@212.227.161.13:/var/www/vhosts/himmelsteil.com/httpdocs/
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}  # SSH-Schlüssel als GitHub Secret
+          ssh-keyscan -H 212.227.161.13 >> ~/.ssh/known_hosts
+        shell: bash
+
+      # 5. Deployment vis SCP mit dem richtigen Key
+      - name: Deploy to Server via SCP
+        run: scp -r -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ./public/* root@212.227.161.13:/var/www/vhosts/himmelsteil.com/httpdocs/
