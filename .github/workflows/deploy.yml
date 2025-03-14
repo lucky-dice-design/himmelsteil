@@ -29,8 +29,8 @@ jobs:
       - name: Add SSH Key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_KEY }}" | tr -d '\r' > ~/.ssh/himmelsteil_key
+          chmod 600 ~/.ssh/himmelsteil_key
           ssh-keyscan -H 212.227.161.13 >> ~/.ssh/known_hosts
         shell: bash
 
