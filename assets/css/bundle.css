@@ -110,6 +110,9 @@ header .logo-container {
   width: 4rem;
   margin-left: 1rem;
 }
+header .logo-container img {
+  width: 100%;
+}
 header .hamburger {
   color: #eee8d7;
   font-size: 1.5rem;
