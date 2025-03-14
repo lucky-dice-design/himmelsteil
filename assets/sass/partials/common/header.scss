@@ -8,6 +8,10 @@ header {
   .logo-container {
     width: 4rem;
     margin-left: $m-margin;
+
+    img {
+      width: 100%;
+    }
   }
   .hamburger {
     color: map.get($colors, neutral);
