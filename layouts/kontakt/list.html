@@ -1,0 +1,35 @@
+{{ define "main" }}
+<form id="contactForm">
+  <input type="text" name="name" placeholder="Dein Name" required />
+  <input type="email" name="email" placeholder="Deine E-Mail" required />
+  <textarea name="message" placeholder="Deine Nachricht" required></textarea>
+  <button type="submit">Absenden</button>
+</form>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(event) {
+  event.preventDefault();
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  const response = await fetch('http://localhost:8055/items/form_submissions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer jUgcgrkWBEYLL_Nm3ze741XvHzvmJAS3'
+    },
+    body: JSON.stringify(data)
+  });
+
+  const result = await response.json();
+  console.log(result);
+
+  if (response.ok) {
+    alert('Deine Nachricht wurde erfolgreich gesendet! 🎉');
+  } else {
+    alert('Fehler beim Senden der Nachricht.');
+  }
+});
+</script>
+{{ end }}
