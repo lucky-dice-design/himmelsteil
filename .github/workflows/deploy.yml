@@ -1,40 +1,30 @@
-name: Deploy Hugo Website to Server
+name: Deploy to Server
 
 on:
   push:
     branches:
-      - master  # Der Workflow wird ausgelöst, wenn auf den Branch `master` gepusht wird
+      - master  # Dieser Workflow wird bei jedem Push zum `main`-Branch ausgelöst
 
 jobs:
-  build-and-deploy:
-    name: Build and Deploy Hugo Website
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       # 1. Checkout des Codes
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2. Installiere Hugo
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "latest"
-
-      # 3. Baue die Hugo-Website
-      - name: Build Hugo Website
-        run: hugo --gc --minify
-
-      # 4. SSH-Key hinzufügen
+      # 2. SSH-Schlüssel hinzufügen
       - name: Add SSH Key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github_repo_key
-          chmod 600 ~/.ssh/github_repo_key
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
         shell: bash
 
-      # 5. Deploy to Server via SCP
-      - name: Deploy to Server
+      # 3. Deployment per SCP (Secure Copy)
+      - name: Deploy to Server via SCP
         run: |
-          scp -r ./public/* ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/vhosts/himmelsteil.com/
+          scp -r ./* ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/github/
+        shell: bash
