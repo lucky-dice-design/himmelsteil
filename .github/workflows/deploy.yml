@@ -3,7 +3,7 @@ name: Deploy Hugo Website to Plesk
 on:
   push:
     branches:
-      - master  # Der Workflow wird ausgelöst, wenn auf den Branch `master` gepusht wird
+      - master
 
 jobs:
   build-and-deploy:
@@ -11,21 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout des Codes
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # 2. Installiere Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "latest"
 
-      # 3. Baue die Hugo-Website
       - name: Build Hugo Website
         run: hugo
 
-      # 4. SSH-Key hinzufügen
       - name: Add SSH Key
         run: |
           mkdir -p ~/.ssh
