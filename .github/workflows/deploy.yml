@@ -3,28 +3,22 @@ name: Deploy to Server
 on:
   push:
     branches:
-      - master  # Dieser Workflow wird bei jedem Push zum `main`-Branch ausgelöst
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout des Codes
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # 2. SSH-Schlüssel hinzufügen
-      - name: Add SSH Key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
-        shell: bash
-
-      # 3. Deployment per SCP (Secure Copy)
-      - name: Deploy to Server via SCP
-        run: |
-          scp -r ./* ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/github/
-        shell: bash
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            mkdir -p /var/www/himmelsteil.com/public
+            rsync -avz --delete ./ /var/www/himmelsteil.com/public
